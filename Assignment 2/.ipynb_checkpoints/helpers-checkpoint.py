@@ -87,7 +87,7 @@ def apply_class_weights(df, label_col="label", weight_col="weight"):
     # inverse frequency weights formula
     weights = {row[label_col]: total / (num_classes * row["count"]) for row in class_counts}
 
-    # **complex line**
+    # **complex code**
     # flatten the weight dictionary to be used as literals in create_map suitable for use with spark dataframe
     weight_map = F.create_map([F.lit(x) for kv in weights.items() for x in kv])
 
